@@ -6,17 +6,19 @@ It's quite simple to use tuples4j!
 
 Imagine that you need a pair of User and Profile:
 
-`Pair<User, Profile> myTuple = new Pair<>(userObject, profileObject);
-\n(...)
+<pre>
+Pair<User, Profile> myTuple = new Pair<>(userObject, profileObject);
+(...)
 User user = myTuple.getFirst();
 Profile profile = myTuple.getSecond();
-`
+</pre>
 
 If you need this pair as a list:
 `List<Object> lst = myTuple.asList();`
 
 
 There is also another helper method that allows you to know if any of the elements are null:
+
 `boolean allElementsFilled = isFullFilled(); //Returns true if all elements of that tuple are not null`
 
 The available classes are:
