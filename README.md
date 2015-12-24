@@ -23,9 +23,11 @@ There is also another helper method that allows you to know if any of the elemen
 
 The available classes are:
 
-`Single
+<pre>
+Single
 Pair
 Triple
-Quadruple`
+Quadruple
+</pre>
 
 To lead with tuples with more than 4 columns, probably the best idea is to create a specific bean to represent this tuple.
