@@ -7,7 +7,7 @@ It's quite simple to use tuples4j!
 Imagine that you need a pair of User and Profile:
 
 `Pair<User, Profile> myTuple = new Pair<>(userObject, profileObject);
-(...)
+\n(...)
 User user = myTuple.getFirst();
 Profile profile = myTuple.getSecond();
 `
