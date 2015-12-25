@@ -6,12 +6,12 @@ It's quite simple to use tuples4j!
 
 Imagine that you need a pair of User and Profile:
 
-<pre>
+```
 Pair<User, Profile> myTuple = new Pair<>(userObject, profileObject);
 (...)
 User user = myTuple.getFirst();
 Profile profile = myTuple.getSecond();
-</pre>
+```
 
 If you need this pair as a list:
 `List<Object> lst = myTuple.asList();`
@@ -29,3 +29,5 @@ The available classes are:
 * Quadruple
 
 To lead with tuples with more than 4 columns, probably the best idea is to create a specific bean to represent this tuple.
+
+This library can also be used in GWT client side.
