@@ -1,5 +1,8 @@
 # tuples4j
 
+This Java library is released under LGPL. Feel free to use, change and redistribuite it!
+Pull request are also welcome :)
+
 This library aims to allow developers use tuples without 2 dimension matrix or create a specific bean to represent each tuple.
 
 It's quite simple to use tuples4j!
