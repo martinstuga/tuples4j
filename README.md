@@ -2,7 +2,7 @@
 
 This Java library is released under LGPL.
 
-Feel free to use, change and redistribuite it! Pull request are also welcome :)
+Feel free to use, change and redistribute it! Pull requests are also welcome :)
 
 This library aims to allow developers use tuples without 2 dimension matrix or create a specific bean to represent each tuple.
 
