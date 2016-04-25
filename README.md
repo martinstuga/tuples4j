@@ -38,7 +38,7 @@ This library can also be used in GWT client side.
 
 To use this lib with maven, just add this dependency:
 
-```
+```xml
 <dependency>
      <groupId>com.github.martinstuga</groupId>
      <artifactId>tuples4j</artifactId>
