@@ -44,4 +44,4 @@ To use this lib with maven, just add this dependency:
      <artifactId>tuples4j</artifactId>
      <version>1.0</version>
  </dependency>
- ```
+```
