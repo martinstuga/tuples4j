@@ -35,3 +35,11 @@ The available classes are:
 To lead with tuples with more than 4 columns, probably the best idea is to create a specific bean to represent this tuple.
 
 This library can also be used in GWT client side.
+
+To use this lib with maven, just add this dependency:
+
+'<dependency>
+     <groupId>com.github.martinstuga</groupId>
+     <artifactId>tuples4j</artifactId>
+     <version>1.0</version>
+ </dependency>'
