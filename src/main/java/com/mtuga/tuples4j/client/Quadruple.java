@@ -16,29 +16,29 @@
  along with tuples4j.  If not, see <http://www.gnu.org/licenses/>
 
  */
-package com.mtuga.tuples4j;
+package com.mtuga.tuples4j.client;
 
 
 import java.util.List;
 
-import com.mtuga.tuples4j.utils.EqualsUtils;
+import com.mtuga.tuples4j.client.utils.EqualsUtils;
 
 
 @SuppressWarnings("serial")
-public class Pair<A, B> extends Single<A> {
+public class Quadruple<A, B, C, D> extends Triple<A, B, C> {
 
 
-	B second = null;
+	protected D fourth = null;
 
 
-	public Pair(A first, B second)
+	public Quadruple(A first, B second, C third, D fourth)
 	{
-		super(first);
-		this.second = second;
+		super(first, second, third);
+		this.setFourth(fourth);
 	}
 
 
-	public Pair()
+	public Quadruple()
 	{
 	}
 
@@ -47,47 +47,28 @@ public class Pair<A, B> extends Single<A> {
 	public List<Object> asList()
 	{
 		List<Object> lst = super.asList();
-		lst.add(this.getSecond());
+		lst.add(this.getFourth());
 
 		return lst;
-	}
-
-
-	public B getSecond()
-	{
-		return second;
-	}
-
-
-	public void setSecond(B second)
-	{
-		this.second = second;
-	}
-
-
-	@Override
-	public boolean isFullFilled()
-	{
-		return (this.getSecond() != null) && super.isFullFilled();
 	}
 
 
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (!(this.getClass().isInstance(obj)))
+		if (!(obj instanceof Quadruple))
 		{
 			return false;
 		}
 
-		Pair<?, ?> var = (Pair<?, ?>) obj;
+		Quadruple<?, ?, ?, ?> var = (Quadruple<?, ?, ?, ?>) obj;
 
 		if (!super.equals(var))
 		{
 			return false;
 		}
 
-		if (EqualsUtils.areEqual(this.getSecond(), var.getSecond()))
+		if (EqualsUtils.areEqual(this.getFourth(), var.getFourth()))
 		{
 			return true;
 		}
@@ -100,8 +81,29 @@ public class Pair<A, B> extends Single<A> {
 	public int hashCode()
 	{
 		int hash = super.hashCode();
-		hash = 89 * hash
-		        + (this.second != null ? this.second.hashCode() : super.hashCode());
+		hash = 89
+		        * hash
+		        + (this.getFourth() != null ? this.getFourth().hashCode() : super
+		                .hashCode());
 		return hash;
+	}
+
+
+	@Override
+	public boolean isFullFilled()
+	{
+		return (this.getFourth() != null) && super.isFullFilled();
+	}
+
+
+	public D getFourth()
+	{
+		return fourth;
+	}
+
+
+	public void setFourth(D fourth)
+	{
+		this.fourth = fourth;
 	}
 }

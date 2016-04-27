@@ -16,7 +16,7 @@
  along with tuples4j.  If not, see <http://www.gnu.org/licenses/>
 
  */
-package com.mtuga.tuples4j;
+package com.mtuga.tuples4j.client;
 
 import java.io.Serializable;
 import java.util.LinkedList;

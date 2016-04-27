@@ -1,4 +1,4 @@
-package com.mtuga.tuples4j.utils;
+package com.mtuga.tuples4j.client.utils;
 
 public abstract class EqualsUtils {
 

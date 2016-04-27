@@ -16,30 +16,31 @@
  along with tuples4j.  If not, see <http://www.gnu.org/licenses/>
 
  */
-package com.mtuga.tuples4j;
+package com.mtuga.tuples4j.client;
 
 
 import java.util.List;
 
-import com.mtuga.tuples4j.utils.EqualsUtils;
+import com.mtuga.tuples4j.client.utils.EqualsUtils;
 
 
 @SuppressWarnings("serial")
-public class Quadruple<A, B, C, D> extends Triple<A, B, C> {
+public class Triple<A, B, C> extends Pair<A, B> {
 
 
-	protected D fourth = null;
+	protected C third = null;
 
 
-	public Quadruple(A first, B second, C third, D fourth)
+	public Triple()
 	{
-		super(first, second, third);
-		this.setFourth(fourth);
+		super();
 	}
 
 
-	public Quadruple()
+	public Triple(A first, B second, C third)
 	{
+		super(first, second);
+		this.setThird(third);
 	}
 
 
@@ -47,7 +48,7 @@ public class Quadruple<A, B, C, D> extends Triple<A, B, C> {
 	public List<Object> asList()
 	{
 		List<Object> lst = super.asList();
-		lst.add(this.getFourth());
+		lst.add(this.getThird());
 
 		return lst;
 	}
@@ -56,19 +57,19 @@ public class Quadruple<A, B, C, D> extends Triple<A, B, C> {
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (!(this.getClass().isInstance(obj)))
+		if (!(obj instanceof Triple))
 		{
 			return false;
 		}
 
-		Quadruple<?, ?, ?, ?> var = (Quadruple<?, ?, ?, ?>) obj;
+		Triple<?, ?, ?> var = (Triple<?, ?, ?>) obj;
 
 		if (!super.equals(var))
 		{
 			return false;
 		}
 
-		if (EqualsUtils.areEqual(this.getFourth(), var.getFourth()))
+		if (EqualsUtils.areEqual(this.getThird(), var.getThird()))
 		{
 			return true;
 		}
@@ -83,7 +84,7 @@ public class Quadruple<A, B, C, D> extends Triple<A, B, C> {
 		int hash = super.hashCode();
 		hash = 89
 		        * hash
-		        + (this.getFourth() != null ? this.getFourth().hashCode() : super
+		        + (this.getThird() != null ? this.getThird().hashCode() : super
 		                .hashCode());
 		return hash;
 	}
@@ -92,18 +93,18 @@ public class Quadruple<A, B, C, D> extends Triple<A, B, C> {
 	@Override
 	public boolean isFullFilled()
 	{
-		return (this.getFourth() != null) && super.isFullFilled();
+		return (this.getThird() != null) && super.isFullFilled();
 	}
 
 
-	public D getFourth()
+	public final C getThird()
 	{
-		return fourth;
+		return third;
 	}
 
 
-	public void setFourth(D fourth)
+	public final void setThird(C third)
 	{
-		this.fourth = fourth;
+		this.third = third;
 	}
 }

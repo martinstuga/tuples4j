@@ -16,31 +16,29 @@
  along with tuples4j.  If not, see <http://www.gnu.org/licenses/>
 
  */
-package com.mtuga.tuples4j;
+package com.mtuga.tuples4j.client;
 
+
+import com.mtuga.tuples4j.client.utils.EqualsUtils;
 
 import java.util.List;
 
-import com.mtuga.tuples4j.utils.EqualsUtils;
-
-
 @SuppressWarnings("serial")
-public class Triple<A, B, C> extends Pair<A, B> {
+public class Pair<A, B> extends Single<A> {
 
 
-	protected C third = null;
+	B second = null;
 
 
-	public Triple()
+	public Pair(A first, B second)
 	{
-		super();
+		super(first);
+		this.second = second;
 	}
 
 
-	public Triple(A first, B second, C third)
+	public Pair()
 	{
-		super(first, second);
-		this.setThird(third);
 	}
 
 
@@ -48,28 +46,47 @@ public class Triple<A, B, C> extends Pair<A, B> {
 	public List<Object> asList()
 	{
 		List<Object> lst = super.asList();
-		lst.add(this.getThird());
+		lst.add(this.getSecond());
 
 		return lst;
+	}
+
+
+	public B getSecond()
+	{
+		return second;
+	}
+
+
+	public void setSecond(B second)
+	{
+		this.second = second;
+	}
+
+
+	@Override
+	public boolean isFullFilled()
+	{
+		return (this.getSecond() != null) && super.isFullFilled();
 	}
 
 
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (!(this.getClass().isInstance(obj)))
+		if (!(obj instanceof Pair))
 		{
 			return false;
 		}
 
-		Triple<?, ?, ?> var = (Triple<?, ?, ?>) obj;
+		Pair<?, ?> var = (Pair<?, ?>) obj;
 
 		if (!super.equals(var))
 		{
 			return false;
 		}
 
-		if (EqualsUtils.areEqual(this.getThird(), var.getThird()))
+		if (EqualsUtils.areEqual(this.getSecond(), var.getSecond()))
 		{
 			return true;
 		}
@@ -82,29 +99,8 @@ public class Triple<A, B, C> extends Pair<A, B> {
 	public int hashCode()
 	{
 		int hash = super.hashCode();
-		hash = 89
-		        * hash
-		        + (this.getThird() != null ? this.getThird().hashCode() : super
-		                .hashCode());
+		hash = 89 * hash
+		        + (this.second != null ? this.second.hashCode() : super.hashCode());
 		return hash;
-	}
-
-
-	@Override
-	public boolean isFullFilled()
-	{
-		return (this.getThird() != null) && super.isFullFilled();
-	}
-
-
-	public final C getThird()
-	{
-		return third;
-	}
-
-
-	public final void setThird(C third)
-	{
-		this.third = third;
 	}
 }

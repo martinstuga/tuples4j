@@ -16,12 +16,13 @@
  along with tuples4j.  If not, see <http://www.gnu.org/licenses/>
 
  */
-package com.mtuga.tuples4j;
+package com.mtuga.tuples4j.client;
 
+
+import com.mtuga.tuples4j.client.utils.EqualsUtils;
 
 import java.util.List;
 
-import com.mtuga.tuples4j.utils.EqualsUtils;
 
 
 public class Single<A> extends Tuple {
@@ -66,7 +67,7 @@ public class Single<A> extends Tuple {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(this.getClass().isInstance(obj))) {
+        if (!(obj instanceof Single)) {
             return false;
         }
 
